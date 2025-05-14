@@ -32,15 +32,15 @@ This design keeps index.html completely untouched — no rewriting or duplicatio
 
 PROJECT STRUCTURE:
 ---------------------
-- Hidden-web-data/
-- index.html                # Public content with hidden image placeholder
-- Xindex.html               # Secure viewer with AES decryption
-- encrypt_image.py          # Python script to AES-encrypt the image
-- server.py                 # Flask web server for testing/viewing
-- style.css                 # Styling for both HTML pages
-- static/
-  ├── image2.png            # The hidden image (source)
-  └── encrypted_image_data.txt  # Encrypted data generated from image2.png
+> Hidden-web-data/
+  - index.html                  # Public content with hidden image placeholder
+  - Xindex.html                 # Secure viewer with AES decryption
+  - encrypt_image.py            # Python script to AES-encrypt the image
+  - server.py                   # Flask web server for testing/viewing
+  - style.css                   # Styling for both HTML pages
+  - static/
+    - image1.png, image2.png    # The hidden image (source)
+    - encrypted_image_data.txt  # Encrypted data generated from image2.png
 
 
 ENCRYPTION INFO:
