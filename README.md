@@ -72,11 +72,13 @@ HOW TO RUN:
    ```
 5. Open in browser:
    ```
-   - http://127.0.0.1:5000/index.html  → Normal content from index.html
+   - http://127.0.0.1:5000/index.html
    ```
+   → Normal content from index.html
    ```
-   - http://127.0.0.1:5000/Xindex.html → Secure view with decryption key prompt
+   - http://127.0.0.1:5000/Xindex.html 
    ```
+   → Secure view with decryption key prompt
 6. Enter AES Key:
    ```
    >  mysecretkey12345
