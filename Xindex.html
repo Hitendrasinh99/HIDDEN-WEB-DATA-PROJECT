@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Xindex.html  Encrypted Version</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+  
+  <div id="indexContent"></div>
+
+  <hr>
+
+  <div>
+    <h3> Decrypt Hidden Image Below</h3>
+    <input type="password" id="keyInput" placeholder="Enter AES key" />
+    <button onclick="decryptImage()">Decrypt</button>
+    <p id="errorMsg" style="color:red;"></p>
+    <br>
+    <img id="decryptedImage" width="300" style="display: none;" />
+  </div>
+
+  <script>
+    fetch('index.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('indexContent').innerHTML = html;
+      })
+      .catch(() => {
+        document.getElementById('indexContent').innerHTML = '<p style="color:red;">Failed to load index content.</p>';
+      });
+
+    async function decryptImage() {
+      const key = document.getElementById('keyInput').value.trim();
+      const response = await fetch('/static/encrypted_image_data.txt');
+      const encryptedBase64 = await response.text();
+
+      try {
+        const encryptedBytes = CryptoJS.enc.Base64.parse(encryptedBase64);
+        const decryptedBytes = CryptoJS.AES.decrypt(
+          { ciphertext: encryptedBytes },
+          CryptoJS.enc.Utf8.parse(key),
+          { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7 }
+        );
+
+        const decryptedBase64 = decryptedBytes.toString(CryptoJS.enc.Utf8);
+
+        if (!decryptedBase64.startsWith("data:image")) {
+          throw new Error("Invalid decryption");
+        }
+
+        const img = document.getElementById('decryptedImage');
+        img.src = decryptedBase64;
+        img.style.display = "block";
+        document.getElementById('errorMsg').innerText = "";
+      } catch (e) {
+        document.getElementById('errorMsg').innerText = " Invalid AES key or corrupted image.";
+      }
+    }
+  </script>
+</body>
+</html>
