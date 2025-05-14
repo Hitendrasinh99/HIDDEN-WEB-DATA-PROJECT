@@ -81,7 +81,7 @@ HOW TO RUN:
    → Secure view with decryption key prompt
 6. Enter AES Key:
    ```
-   >  mysecretkey12345
+   mysecretkey12345
    ```
    → Reveals the hidden image
 
