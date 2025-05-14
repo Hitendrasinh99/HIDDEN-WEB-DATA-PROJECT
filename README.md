@@ -19,7 +19,7 @@ This project uses two separate HTML files:
 1. index.html
    - Public-facing page
    - Contains general visible content (text and image)
-   - Shows a placeholder message where the hidden content (image) would be
+   - Shows a Hidden and Importent Content For this Research message where the hidden content (image) would be
 
 2. Xindex.html
    - Secure extension of index.html
@@ -32,15 +32,15 @@ This design keeps index.html completely untouched — no rewriting or duplicatio
 
 PROJECT STRUCTURE:
 ---------------------
-Hidden-web-data/
-├── index.html                # Public content with hidden image placeholder
-├── Xindex.html               # Secure viewer with AES decryption
-├── encrypt_image.py          # Python script to AES-encrypt the image
-├── server.py                 # Flask web server for testing/viewing
-├── style.css                 # Styling for both HTML pages
-├── static/
-│   ├── image2.png            # The hidden image (source)
-│   └── encrypted_image_data.txt  # Encrypted data generated from image2.png
+-Hidden-web-data/
+-index.html                # Public content with hidden image placeholder
+-Xindex.html               # Secure viewer with AES decryption
+-encrypt_image.py          # Python script to AES-encrypt the image
+-server.py                 # Flask web server for testing/viewing
+-style.css                 # Styling for both HTML pages
+-static/
+ ├── image2.png            # The hidden image (source)
+ └── encrypted_image_data.txt  # Encrypted data generated from image2.png
 
 
 ENCRYPTION INFO:
