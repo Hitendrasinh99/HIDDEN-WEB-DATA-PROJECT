@@ -1,6 +1,5 @@
-====================================================================
+
               HIDDEN-WEB-DATA PROJECT - SECURE CONTENT VIEWER
-====================================================================
 
 PURPOSE:
 -----------
@@ -51,28 +50,35 @@ ENCRYPTION INFO:
 - Key used for encryption/decryption: mysecretkey12345
 - The `encrypt_image.py` script reads image2.png, converts it into a base64 data URI,
   encrypts it using AES, and stores the encrypted output in encrypted_image_data.txt.
-
 - This encrypted image is decrypted ONLY when the correct key is provided via Xindex.html
 
 
 HOW TO RUN:
 --------------
-1. Place your image inside the `static/` folder as `image2.png`
-
-2. Run the encryption script:
-   > python encrypt_image.py
-
-3. Start the local server:
-   > python server.py
-
-4. Open in browser:
-   - http://127.0.0.1:5000/         → Normal content from index.html
+1. Place your image inside the `static/` folder as `image1.png`,`image2.png`
+2.  Install Required Packages if required 
+   ```
+   pip install flask
+   ```
+   ```
+   pip install pycryptodome
+   ```
+3. Run the encryption script:
+   ```
+    python encrypt_image.py
+   ```
+4. Start the local server:
+   ```
+   python server.py
+   ```
+5. Open in browser:
+   ```
+   - http://127.0.0.1:5000/index.html         → Normal content from index.html
    - http://127.0.0.1:5000/Xindex.html → Secure view with decryption key prompt
-
-5. Enter AES Key:
+   ```
+6. Enter AES Key:
    > mysecretkey12345
    → Reveals the hidden image
-
 
 KEY FEATURES:
 ----------------
