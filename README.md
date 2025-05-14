@@ -7,7 +7,7 @@ It ensures that certain sensitive or hidden parts of the page (like an image)
 can only be revealed after successful AES decryption with a valid key.
 
 This model is ideal for:
-- Research-focused web archives
+- Research focused web archives
 - Confidential content previews
 - Controlled content access with cryptographic protection
 
@@ -27,7 +27,7 @@ This project uses two separate HTML files:
    - Adds a secure section that prompts the user to enter an AES key
    - On correct decryption, displays the hidden image without modifying original content
 
-This design keeps index.html completely untouched — no rewriting or duplication.
+This design keeps index.html completely untouched no rewriting or duplication.
 
 
 PROJECT STRUCTURE:
@@ -35,7 +35,7 @@ PROJECT STRUCTURE:
 > Hidden-web-data/
   - index.html                  # Public content with hidden image placeholder
   - Xindex.html                 # Secure viewer with AES decryption
-  - encrypt_image.py            # Python script to AES-encrypt the image
+  - encrypt_image.py            # Python script to AES encrypt the image
   - server.py                   # Flask web server for testing/viewing
   - style.css                   # Styling for both HTML pages
   - static/
@@ -64,7 +64,7 @@ HOW TO RUN:
    ```
 3. Run the encryption script:
    ```
-    python encrypt_image.py
+   python encrypt_image.py
    ```
 4. Start the local server:
    ```
@@ -87,7 +87,7 @@ HOW TO RUN:
 
 KEY FEATURES:
 ----------------
-- No content overwrite: index.html is preserved 100% as-is
+- No content overwrite: index.html is preserved 100% as it is
 - Separation of public and encrypted content
 - Simple AES integration for controlled access
 
